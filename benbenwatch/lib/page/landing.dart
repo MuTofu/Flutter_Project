@@ -1,4 +1,5 @@
 import 'package:benbenwatch/Color/color.dart';
+import 'package:benbenwatch/page/login.dart';
 import 'package:benbenwatch/widget/thumnail-landing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,17 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.center,
+            colors: [
+              AppColor().darkBlueApp,
+              AppColor().blackApp
+            ]
+          )
+        ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
@@ -80,10 +91,13 @@ class _LandingPageState extends State<LandingPage> {
               ),
 
               SizedBox(
-                height: 60,
+                height: 50,
                 width: MediaQuery.of(context).size.width - 35,
                 child: ElevatedButton(
                     onPressed: (){
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+                        return const LoginPage();
+                      }));
 
                     },
 
@@ -101,7 +115,7 @@ class _LandingPageState extends State<LandingPage> {
                     )),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 40,
               )
               

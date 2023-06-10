@@ -1,3 +1,4 @@
+import 'package:benbenwatch/Color/color.dart';
 import 'package:flutter/cupertino.dart';
 
 class ThumbnailLandingPage extends StatelessWidget {
@@ -6,7 +7,7 @@ class ThumbnailLandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
 
       child: Column(
         children: [
@@ -14,20 +15,31 @@ class ThumbnailLandingPage extends StatelessWidget {
           SizedBox(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
-              child: Image.asset(
-                "assets/thumbnail/images/eleina-bg.jpg",
-                width: MediaQuery.of(context).size.width - 30,
-                // height: 100,
-                fit: BoxFit.cover,
+              child: ShaderMask(
+                shaderCallback: (rect){
+                  return LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.center,
+                      colors: [
+                        AppColor().blackApp,
+                        AppColor().transparentBlack
+                      ]).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+                },
+                blendMode: BlendMode.dstOut,
+                child: Image.asset(
+                  "assets/thumbnail/images/eleina-bg.jpg",
+                  width: MediaQuery.of(context).size.width - 30,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
 
-          SizedBox(
+          const SizedBox(
             child: Text(
               "Anime",
               style: TextStyle(

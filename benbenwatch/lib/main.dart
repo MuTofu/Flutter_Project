@@ -1,5 +1,13 @@
+import 'package:benbenwatch/Color/color.dart';
+import 'package:benbenwatch/page/home.dart';
+import 'package:benbenwatch/page/home_test.dart';
 import 'package:benbenwatch/page/landing.dart';
-import 'package:benbenwatch/widget/thumnail-landing.dart';
+import 'package:benbenwatch/page/more_movie.dart';
+import 'package:benbenwatch/page/movie.dart';
+import 'package:benbenwatch/widget/item_home.dart';
+import 'package:benbenwatch/widget/item_movie.dart';
+import 'package:benbenwatch/widget/jumbotron_home.dart';
+import 'package:benbenwatch/widget/listview_home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,10 +25,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        scaffoldBackgroundColor: const Color.fromRGBO(24, 43, 55, 1),
+        scaffoldBackgroundColor: AppColor().blackApp,
         useMaterial3: true,
       ),
-      home: LandingPage(),
+      home: const LandingPage(),
     );
   }
 }
